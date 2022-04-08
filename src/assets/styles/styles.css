@@ -1,0 +1,39 @@
+body {
+background-color: #fcfcfc;
+margin: 0;
+width: 100%;
+}
+
+.page-title{
+  width: 208px;
+  height: 28px;
+  object-fit: contain;
+  font-family: Baskerville;
+  font-size: 28px;
+  line-height: 1;
+  color: #3b3b3b;
+}
+.page-title-rectangle {
+  box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
+  background-image: linear-gradient(to bottom, #ececec -32%, #fff 124%);
+  padding: 44px 0 42px 150px;
+}
+.page-tab{
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.75;
+  text-align: center;
+  color: #606060;
+
+  width: 98px;
+  height: 31px;
+  padding: 3px 16px 0 17px;
+  border-radius: 2px;
+  border: solid 1px #d6d6d6;
+}
+.page-tabs{
+  padding-top: 70px;
+  display: flex;
+  justify-content: center;
+}
