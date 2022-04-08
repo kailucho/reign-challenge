@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <div>HACKER NEWS</div>
+      <div>
+        <div>All</div>
+        <div>My faves</div>
+      </div>
+
+      <div>Select your news</div>
+      <div>
+        <div>
+          <div>2 hours ago by author</div>
+          <div> Event-driven state management in React using Storeon</div>
+        </div>
+        <div>
+          <div>2 hours ago by author</div>
+          <div> Event-driven state management in React using Storeon</div>
+        </div>
+      </div>
+      <div>pages</div>
     </div>
   );
 }
