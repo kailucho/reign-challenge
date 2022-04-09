@@ -2,6 +2,8 @@ body {
 background-color: #fcfcfc;
 margin: 0;
 width: 100%;
+font-family: Roboto;
+font-size: 14px;
 }
 
 .page-title{
@@ -19,21 +21,110 @@ width: 100%;
   padding: 44px 0 42px 150px;
 }
 .page-tab{
-  font-family: Roboto;
+
   font-size: 16px;
   font-weight: 500;
   line-height: 1.75;
   text-align: center;
   color: #606060;
-
   width: 98px;
   height: 31px;
   padding: 3px 16px 0 17px;
   border-radius: 2px;
   border: solid 1px #d6d6d6;
+  cursor: pointer;
 }
 .page-tabs{
   padding-top: 70px;
   display: flex;
   justify-content: center;
+}
+
+.list-cards{
+  margin: 63px 114px 1px 150px;
+}
+
+.select-container {
+  margin-top: 68px;
+  width: 240px;
+  position: relative;
+}
+
+.select-field {
+  align-items: center;
+  border: solid 1px #2e2e2e;
+  border-radius: 4px;
+  display: flex;
+  height: 32px;
+  justify-content: space-between;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.select-field:hover {
+  cursor: pointer;
+}
+
+.select-text {
+  flex: 1 1 auto;
+}
+
+.select-icon {
+  transition-duration: 300ms;
+  width: 10px;
+}
+
+.select-icon-rotated {
+  transform: rotateZ(180deg);
+}
+
+.select-conainer-option {
+  background-color: #ffffff;
+  box-shadow: 0 2px 2px 0 #dad8d8;
+  display: none;
+  left: 0;
+  margin-top: 25px;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.select-list-option {
+  display: block;
+  margin-top: 35px;
+  animation:  400ms ;
+  transform-origin: top center;
+}
+
+.select-option {
+  align-items: center;
+  color: #343434;
+  display: flex;
+  height: 46px;
+  padding-left: 10px;
+}
+
+.select-option:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.select-option-icon {
+  height: 24px;
+  margin-right: 13px;
+  width: 24px;
+}
+.card-header{
+  width: 107px;
+  height: 13px;
+  margin: 2px 309px 7px 8px;
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #767676;
 }

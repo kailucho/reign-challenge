@@ -2,7 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function Title({ text }) {
-  return <div className="page-title">{text}</div>;
+  return (
+    <div className="page-title-rectangle">
+      <div className="page-title">{text}</div>
+    </div>
+  );
 }
 Title.defaultProps = {
   text: "",
