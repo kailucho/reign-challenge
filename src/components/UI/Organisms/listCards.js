@@ -2,6 +2,7 @@ import React from "react";
 
 import FrameworkSelect from "../Atoms/Input/frameworkSelect";
 import Card from "../Molecules/card";
+import Pagination from "../Molecules/pagination";
 const test = [
   {
     header: "2 hours ago by author",
@@ -46,6 +47,7 @@ function ListCards() {
           <Card headerText={news.header} contentText={news.content} />
         ))}
       </div>
+      <Pagination />
     </div>
   );
 }

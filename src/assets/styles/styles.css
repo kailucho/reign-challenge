@@ -175,3 +175,33 @@ margin: 63px 114px 1px 150px;
   row-gap: 30px;
   margin-top: 38px;
 }
+.pagination-container{
+  display: flex;
+  margin-top: 96px;
+}
+.pagination-container li,.pagination-container button{
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 6px;
+  color: rgba(0, 0, 0, .65);
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  height: 32px;
+  justify-content: center;
+  margin: 0 4px;
+  transition-duration: .5s;
+  width: 32px;
+  background-color: #fff;
+}
+.pagination-start-icon{
+  transform: rotate(90deg);
+  width: 7px;
+  height: 10px;
+}
+.pagination-end-icon {
+  transform: rotate(-90deg);
+  width: 7px;
+  height: 10px;
+
+}
