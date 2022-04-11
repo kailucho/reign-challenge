@@ -1,20 +1,32 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import { tabOptions } from "../../../types/types";
+import Text from "../Atoms/Text/text";
 
-import Tab from "../Atoms/Tab/tab";
-
-function News({ tabSelected, settabSelected }) {
+function Tabs({ tabSelected, settabSelected }) {
   return (
     <div className="page-tabs">
       {tabOptions.map((tab, index) => (
-        <Tab
+        <Text
           key={index}
           text={tab.text}
           onClick={() => settabSelected(tab.text)}
-          className={tabSelected === tab.text ? "tab-selected" : ""}
+          className={
+            "page-tab " + (tabSelected === tab.text ? "tab-selected" : "")
+          }
+          role="tab"
         />
       ))}
     </div>
   );
 }
-export default News;
+Tabs.defaultProps = {
+  tabSelected: "",
+  settabSelected: () => {},
+};
+Tabs.propTypes = {
+  tabSelected: PropTypes.string,
+  settabSelected: PropTypes.func,
+};
+export default Tabs;

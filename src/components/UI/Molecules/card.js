@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import CardHeader from "../Atoms/Text/cardHeader";
-import CardContent from "../Atoms/Text/cardContent";
+import PropTypes from "prop-types";
+
+import Text from "../Atoms/Text/text";
 import timeIcon from "../../../assets/images/timeIcon.png";
 import heartIcon from "../../../assets/images/heartIcon.png";
 import fullHeartIcon from "../../../assets/images/fullHeartIcon.png";
@@ -28,14 +29,20 @@ function Card({ article, getNews }) {
   };
   return (
     <div className="card-container">
-      <a href={article?.story_url} target="_blank" rel="noreferrer">
+      <a
+        href={article?.story_url}
+        target="_blank"
+        rel="noreferrer"
+        data-testid="linkToNewPage"
+      >
         <div className="card-header">
           <img className="card-icon-time" src={timeIcon} alt="timeIcon" />
-          <CardHeader
+          <Text
+            className="card-header-text"
             text={timeSince(article?.created_at) + " by " + article.author}
           />
         </div>
-        <CardContent text={article.story_title} />
+        <Text className="card-content" text={article.story_title} />
       </a>
       <button className="card-icon-heart-container" onClick={handleFave}>
         <img
@@ -47,5 +54,12 @@ function Card({ article, getNews }) {
     </div>
   );
 }
-
+Card.defaultProps = {
+  article: "",
+  getNews: () => {},
+};
+Card.propTypes = {
+  article: PropTypes.object,
+  getNews: PropTypes.func,
+};
 export default Card;

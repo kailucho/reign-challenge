@@ -10,9 +10,7 @@ function ListNews() {
     <div>
       <Title text="HACKER NEWS" />
       <Tabs tabSelected={tabSelected} settabSelected={settabSelected} />
-      <div className="list-cards-container">
-        <ListAllCards tabSelected={tabSelected} />
-      </div>
+      <ListAllCards tabSelected={tabSelected} />
     </div>
   );
 }

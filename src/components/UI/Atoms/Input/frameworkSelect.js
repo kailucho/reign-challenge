@@ -1,18 +1,13 @@
 import React, { useState } from "react";
-import reactIcon from "../../../../assets/images/reactIcon.png";
-import angularIcon from "../../../../assets/images/angularIcon.png";
-import vueIcon from "../../../../assets/images/vueIcon.png";
+import PropTypes from "prop-types";
+
 import selectIcon from "../../../../assets/images/selectIcon.png";
 import {
   setInLocalStorage,
   getFromLocalStorage,
 } from "../../../../utils/localStorage";
+import { Frameworks } from "../../../../types/types";
 
-const Frameworks = [
-  { name: "React", icon: reactIcon, value: "reactjs" },
-  { name: "Angular", icon: angularIcon, value: "angular" },
-  { name: "Vue", icon: vueIcon, value: "vuejs" },
-];
 const frameworkSelected = getFromLocalStorage("frameworkSelected");
 const FrameworkSelect = ({ setframeworkSelected }) => {
   const [showOptions, setShowOptions] = useState(false);
@@ -62,5 +57,10 @@ const FrameworkSelect = ({ setframeworkSelected }) => {
     </div>
   );
 };
-
+FrameworkSelect.defaultProps = {
+  setframeworkSelected: () => {},
+};
+FrameworkSelect.propTypes = {
+  setframeworkSelected: PropTypes.func,
+};
 export default FrameworkSelect;

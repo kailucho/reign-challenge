@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+
 import FrameworkSelect from "../Atoms/Input/frameworkSelect";
 import Card from "../Molecules/card";
 import Pagination from "../Molecules/pagination";
@@ -25,12 +27,12 @@ function ListAllCards({ tabSelected }) {
     getNews();
   }, [frameworkSelected, pageSelected, tabSelected]);
   return (
-    <>
+    <div className="list-cards-container">
       {tabSelected === "All" && (
         <FrameworkSelect setframeworkSelected={setframeworkSelected} />
       )}
       <div className="list-cards">
-        {news.map((newItem, index) => (
+        {news.map((newItem) => (
           <Card key={newItem.objectID} article={newItem} getNews={getNews} />
         ))}
       </div>
@@ -38,7 +40,13 @@ function ListAllCards({ tabSelected }) {
         setpageSelected={setpageSelected}
         pageSelected={pageSelected}
       />
-    </>
+    </div>
   );
 }
+ListAllCards.defaultProps = {
+  tabSelected: "",
+};
+ListAllCards.propTypes = {
+  tabSelected: PropTypes.string,
+};
 export default ListAllCards;

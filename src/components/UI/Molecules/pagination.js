@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
+
 import selectIcon from "../../../assets/images/selectIcon.png";
 
 function Pagination({ pageSelected, setpageSelected }) {
@@ -44,4 +46,12 @@ function Pagination({ pageSelected, setpageSelected }) {
     </ul>
   );
 }
+Pagination.defaultProps = {
+  pageSelected: 1,
+  setpageSelected: () => {},
+};
+Pagination.propTypes = {
+  pageSelected: PropTypes.number,
+  setpageSelected: PropTypes.func,
+};
 export default Pagination;
