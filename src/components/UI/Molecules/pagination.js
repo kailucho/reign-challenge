@@ -8,8 +8,9 @@ function Pagination({ pageSelected, setpageSelected }) {
     for (let i = (pagesStart - 1) * 9 + 1; i <= 9 * pagesStart; i++) {
       temp.push(
         <li
+          key={i}
           onClick={() => setpageSelected(i - 1)}
-          className={pageSelected == i - 1 ? "pagination-selected" : ""}
+          className={pageSelected === i - 1 ? "pagination-selected" : ""}
         >
           {i}
         </li>

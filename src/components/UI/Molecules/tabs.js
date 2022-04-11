@@ -1,12 +1,19 @@
 import React from "react";
+import { tabOptions } from "../../../types/types";
 
 import Tab from "../Atoms/Tab/tab";
 
-function News() {
+function News({ tabSelected, settabSelected }) {
   return (
     <div className="page-tabs">
-      <Tab text="All" />
-      <Tab text="My faves" />
+      {tabOptions.map((tab, index) => (
+        <Tab
+          key={index}
+          text={tab.text}
+          onClick={() => settabSelected(tab.text)}
+          className={tabSelected === tab.text ? "tab-selected" : ""}
+        />
+      ))}
     </div>
   );
 }
