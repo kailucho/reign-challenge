@@ -1,53 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { FetchData } from "../../../helpers/apiHandler";
+import { filterCompleteNews } from "../../../utils/filterCompleteNews";
+import { timeSince } from "../../../utils/timeSince";
 
 import FrameworkSelect from "../Atoms/Input/frameworkSelect";
 import Card from "../Molecules/card";
 import Pagination from "../Molecules/pagination";
-const test = [
-  {
-    header: "2 hours ago by author",
-    content: "Event-driven state management in React using Storeon",
-  },
-  {
-    header: "2 hours ago by author",
-    content: "Event-driven state management in React using Storeon",
-  },
-  {
-    header: "2 hours ago by author",
-    content: "Event-driven state management in React using Storeon",
-  },
-  {
-    header: "2 hours ago by author",
-    content: "Event-driven state management in React using Storeon",
-  },
-  {
-    header: "2 hours ago by author",
-    content: "Event-driven state management in React using Storeon",
-  },
-  {
-    header: "2 hours ago by author",
-    content: "Event-driven state management in React using Storeon",
-  },
-  {
-    header: "2 hours ago by author",
-    content: "Event-driven state management in React using Storeon",
-  },
-  {
-    header: "2 hours ago by author",
-    content: "Event-driven state management in React using Storeon",
-  },
-];
 
 function ListCards() {
+  const [news, setnews] = useState([]);
+  const [pageSelected, setpageSelected] = useState(0);
+  const [frameworkSelected, setframeworkSelected] = useState("");
+
+  useEffect(() => {
+    async function getNews() {
+      try {
+        const response = await FetchData("search_by_date", "GET", {
+          query: frameworkSelected,
+          page: pageSelected,
+        });
+        setnews(filterCompleteNews(response.hits));
+      } catch (error) {}
+    }
+    getNews();
+  }, [frameworkSelected, pageSelected]);
+
   return (
     <div className="list-cards-container">
-      <FrameworkSelect />
+      <FrameworkSelect setframeworkSelected={setframeworkSelected} />
       <div className="list-cards">
-        {test.map((news) => (
-          <Card headerText={news.header} contentText={news.content} />
+        {news.map((news, index) => (
+          <Card
+            key={index}
+            headerText={timeSince(news.created_at)}
+            contentText={news.story_title}
+          />
         ))}
       </div>
-      <Pagination />
+      <Pagination
+        setpageSelected={setpageSelected}
+        pageSelected={pageSelected}
+      />
     </div>
   );
 }

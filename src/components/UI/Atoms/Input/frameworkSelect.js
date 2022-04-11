@@ -3,19 +3,27 @@ import reactIcon from "../../../../assets/images/reactIcon.png";
 import angularIcon from "../../../../assets/images/angularIcon.png";
 import vueIcon from "../../../../assets/images/vueIcon.png";
 import selectIcon from "../../../../assets/images/selectIcon.png";
+import {
+  setInLocalStorage,
+  getFromLocalStorage,
+} from "../../../../utils/localStorage";
 
 const Frameworks = [
-  { name: "React", icon: reactIcon },
-  { name: "Angular", icon: angularIcon },
-  { name: "Vue", icon: vueIcon },
+  { name: "React", icon: reactIcon, value: "reactjs" },
+  { name: "Angular", icon: angularIcon, value: "angular" },
+  { name: "Vue", icon: vueIcon, value: "vuejs" },
 ];
-
-const FrameworkSelect = () => {
+const frameworkSelected = getFromLocalStorage("frameworkSelected");
+const FrameworkSelect = ({ setframeworkSelected }) => {
   const [showOptions, setShowOptions] = useState(false);
-  const [framework, setFramework] = useState("");
-  const handleSelected = (selected) => {
-    setFramework(selected);
+  const [framework, setFramework] = useState(
+    frameworkSelected ? frameworkSelected.name : ""
+  );
+  const handleSelected = (item) => {
+    setframeworkSelected(item.value);
+    setFramework(item.name);
     setShowOptions(false);
+    setInLocalStorage("frameworkSelected", item);
   };
   return (
     <div className="select-container">
@@ -36,8 +44,12 @@ const FrameworkSelect = () => {
         }`}
         onMouseLeave={() => setShowOptions(false)}
       >
-        {Frameworks.map((framework) => (
-          <li className={"select-option"} onClick={() => {}}>
+        {Frameworks.map((framework, index) => (
+          <li
+            key={index}
+            className={"select-option"}
+            onClick={() => handleSelected(framework)}
+          >
             <img
               className="select-option-icon"
               src={framework.icon}

@@ -178,6 +178,7 @@ margin: 63px 114px 1px 150px;
 .pagination-container{
   display: flex;
   margin-top: 96px;
+  justify-content: center;
 }
 .pagination-container li,.pagination-container button{
   align-items: center;
@@ -204,4 +205,9 @@ margin: 63px 114px 1px 150px;
   width: 7px;
   height: 10px;
 
+}
+.pagination-selected{
+  background-color: #1890ff!important;
+  border: 1px solid #1890ff!important;
+  color: #fff !important;
 }
